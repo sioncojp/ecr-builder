@@ -2,8 +2,6 @@ package main
 
 import (
 	"errors"
-	"fmt"
-
 	"log"
 
 	"github.com/urfave/cli"
@@ -60,7 +58,7 @@ func SetFlagToVariable(ctx *cli.Context) error {
 		return errors.New("required -n, --name option")
 	}
 
-	if !(Env == "stg" || Env == "prod") {
+	if Env == "" {
 		return errors.New("required -e, --env option")
 	}
 
@@ -72,7 +70,6 @@ func SetFlagToVariable(ctx *cli.Context) error {
 		return errors.New("required -a, --account option")
 	}
 
-	log.Printf("save ECR tags: %s", SaveTags)
-	fmt.Println()
+	log.Printf("save ECR tags: %s\n", SaveTags)
 	return nil
 }
