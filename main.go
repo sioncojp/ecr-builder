@@ -28,6 +28,9 @@ var (
 
 	// SaveTags ... ECR lifecycleで削除を保護するタグを格納
 	SaveTags = []string{"prod", "stg"}
+
+	// AlreadyBuildImage ... skip-buildの場合、すでにbuild済みのtagを格納
+	AlreadyBuildImage string
 )
 
 type awsConfig struct {
