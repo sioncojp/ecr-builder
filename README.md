@@ -19,15 +19,15 @@ COMMANDS:
      help, h  Shows a list of commands or help for one command
 
 GLOBAL OPTIONS:
-   --name value, -n value     image name
-   --env value, -e value      stg / prod
-   --region value, -r value   default ap-northeast-1 (default: "ap-northeast-1")
-   --profile value, -p value  AWS Profile
-   --account value, -a value  aws account id (default: 0)
-   --tags value, -t value     [-t hoge -t fuga] save tags. prod / stg are normally not deleted.
-   --help, -h                 show help
-   --version, -v              print the version
-
+   --name value, -n value        image name
+   --env value, -e value         ex. stg / prod
+   --region value, -r value      default ap-northeast-1 (default: "ap-northeast-1")
+   --profile value, -p value     AWS Profile
+   --skip-build value, -s value  if skip-build, please specify the docker image already build
+   --account value, -a value     aws account id (default: 0)
+   --tags value, -t value        [-t hoge -t fuga] save tags. prod / stg are normally not deleted.
+   --help, -h                    show help
+   --version, -v                 print the version
 
 
 ### build & push: test image
