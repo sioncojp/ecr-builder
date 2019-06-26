@@ -21,7 +21,7 @@ func FlagSet() *cli.App {
 		},
 		cli.StringFlag{
 			Name:  "env, e",
-			Usage: "stg / prod",
+			Usage: "ex. stg / prod",
 		},
 		cli.StringFlag{
 			Name:  "region, r",
@@ -31,6 +31,10 @@ func FlagSet() *cli.App {
 		cli.StringFlag{
 			Name:  "profile, p",
 			Usage: "AWS Profile",
+		},
+		cli.StringFlag{
+			Name:  "skip-build, s",
+			Usage: "if skip-build, please specify the docker image already build",
 		},
 		cli.IntFlag{
 			Name:  "account, a",
@@ -53,6 +57,7 @@ func SetFlagToVariable(ctx *cli.Context) error {
 	Aws.Profile = ctx.String("profile")
 	Aws.Region = ctx.String("region")
 	SaveTags = append(SaveTags, ctx.StringSlice("tags")...)
+	AlreadyBuildImage = ctx.String("skip-build")
 
 	if ImageName == "" {
 		return errors.New("required -n, --name option")
